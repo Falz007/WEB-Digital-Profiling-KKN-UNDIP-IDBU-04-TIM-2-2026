@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Digital Profiling – Desa Donosari | KKN Undip IDBU BU DYAH 2026
+    </title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
+
+      :root {
+        --hijau-tua: #1b4332;
+        --hijau-muda: #40916c;
+        --hijau-aksen: #74c69d;
+        --hijau-pale: #d8f3dc;
+        --kuning: #f4a261;
+        --kuning-muda: #fff3e4;
+        --merah: #e63946;
+        --merah-muda: #ffe5e7;
+        --biru: #1d3557;
+        --biru-muda: #e8f1ff;
+        --abu: #6b7280;
+        --putih: #ffffff;
+        --bg: #f8faf9;
+        --teks: #1a2b22;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--teks);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* ── HEADER ── */
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--hijau-tua) 0%,
+          var(--hijau-muda) 100%
+        );
+        color: white;
+        padding: 40px 48px 36px;
+        position: relative;
+        overflow: hidden;
+      }
+      .header::before {
+        content: "";
+        position: absolute;
+        right: -60px;
+        top: -60px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        right: 80px;
+        bottom: -80px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .header-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-bottom: 14px;
+      }
+      .header h1 {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      .header h1 span {
+        color: var(--hijau-aksen);
+      }
+      .header-sub {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-bottom: 24px;
+      }
+      .header-meta {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .header-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        opacity: 0.9;
+      }
+      .header-meta-item .icon {
+        width: 22px;
+        height: 22px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+
+      /* ── WARNING BAR ── */
+      .warning-bar {
+        background: #fff3cd;
+        border-left: 4px solid #f4a261;
+        padding: 12px 48px;
+        font-size: 13px;
+        color: #7d4e00;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* ── MAIN LAYOUT ── */
+      .main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 24px;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        margin-bottom: 36px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--hijau-pale);
+      }
+      .section-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--hijau-tua);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .section-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--hijau-tua);
+      }
+      .section-letter {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--abu);
+        background: var(--hijau-pale);
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-left: auto;
+      }
+
+      /* ── CARDS GRID ── */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        background: white;
+        border: 1px solid #e5ede9;
+        border-radius: 12px;
+        padding: 18px;
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: 0 4px 16px rgba(27, 67, 50, 0.1);
+      }
+      .card-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--abu);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 6px;
+      }
+      .card-value {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--hijau-tua);
+        line-height: 1.2;
+      }
+      .card-value.medium {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .card-sub {
+        font-size: 12px;
+        color: var(--abu);
+        margin-top: 4px;
+      }
+      .card.accent {
+        background: var(--hijau-tua);
+        border-color: var(--hijau-tua);
+      }
+      .card.accent .card-label {
+        color: var(--hijau-aksen);
+      }
+      .card.accent .card-value {
+        color: white;
+      }
+      .card.accent .card-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .card.warn {
+        background: var(--kuning-muda);
+        border-color: #f4a261;
+      }
+      .card.warn .card-value {
+        color: #7d4e00;
+      }
+      .card.danger {
+        background: var(--merah-muda);
+        border-color: var(--merah);
+      }
+      .card.danger .card-value {
+        color: #9b1b24;
+      }
+
+      /* ── INFO TABLE ── */
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e5ede9;
+      }
+      .info-table th,
+      .info-table td {
+        padding: 11px 16px;
+        text-align: left;
+        border-bottom: 1px solid #f0f5f2;
+        font-size: 13.5px;
+      }
+      .info-table th {
+        background: var(--hijau-tua);
+        color: white;
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .info-table tr:last-child td {
+        border-bottom: none;
+      }
+      .info-table tr:nth-child(even) td {
+        background: #f8faf9;
+      }
+      .info-table td:first-child {
+        font-weight: 600;
+        color: var(--hijau-tua);
+        width: 40%;
+      }
+
+      /* ── TWO COLUMNS ── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .three-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+
+      @media (max-width: 700px) {
+        .two-col,
+        .three-col {
+          grid-template-columns: 1fr;
+        }
+        .header {
+          padding: 24px;
+        }
+        .header h1 {
+          font-size: 22px;
+        }
+      }
+
+      /* ── WHITE BOX ── */
+      .white-box {
+        background: white;
+        border: 1px solid #e5ede9;
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .white-box h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--hijau-tua);
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--hijau-pale);
+      }
+
+      /* ── TIMELINE ── */
+      .timeline {
+        list-style: none;
+        position: relative;
+        padding-left: 24px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: var(--hijau-pale);
+      }
+      .timeline li {
+        position: relative;
+        margin-bottom: 14px;
+        font-size: 13.5px;
+      }
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -21px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--hijau-muda);
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px var(--hijau-muda);
+      }
+      .timeline-date {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--hijau-muda);
+        display: block;
+        margin-bottom: 2px;
+      }
+      .timeline-text {
+        color: var(--teks);
+        line-height: 1.5;
+      }
+
+      /* ── BADGE TAGS ── */
+      .tag {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        margin: 3px 2px;
+      }
+      .tag-green {
+        background: var(--hijau-pale);
+        color: var(--hijau-tua);
+      }
+      .tag-yellow {
+        background: var(--kuning-muda);
+        color: #7d4e00;
+      }
+      .tag-red {
+        background: var(--merah-muda);
+        color: #9b1b24;
+      }
+      .tag-blue {
+        background: var(--biru-muda);
+        color: var(--biru);
+      }
+
+      /* ── ISSUE CARDS ── */
+      .issue-card {
+        background: white;
+        border: 1px solid #e5ede9;
+        border-left: 4px solid var(--hijau-muda);
+        border-radius: 0 12px 12px 0;
+        padding: 14px 18px;
+        margin-bottom: 10px;
+      }
+      .issue-card.high {
+        border-left-color: var(--merah);
+      }
+      .issue-card.med {
+        border-left-color: var(--kuning);
+      }
+      .issue-card.low {
+        border-left-color: var(--hijau-aksen);
+      }
+      .issue-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--teks);
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .issue-desc {
+        font-size: 13px;
+        color: var(--abu);
+        line-height: 1.5;
+      }
+
+      /* ── PRIORITY BADGE ── */
+      .priority {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .p-high {
+        background: var(--merah);
+        color: white;
+      }
+      .p-med {
+        background: var(--kuning);
+        color: white;
+      }
+      .p-low {
+        background: var(--hijau-aksen);
+        color: var(--hijau-tua);
+      }
+
+      /* ── FINANCE BARS ── */
+      .finance-item {
+        margin-bottom: 12px;
+      }
+      .finance-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+      .finance-label span:first-child {
+        font-weight: 600;
+        color: var(--teks);
+      }
+      .finance-label span:last-child {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--abu);
+      }
+      .bar-bg {
+        height: 8px;
+        background: #e5ede9;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        border-radius: 4px;
+        background: var(--hijau-muda);
+      }
+
+      /* ── SOURCE TABLE ── */
+      .source-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      .source-table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid #f0f5f2;
+      }
+      .source-table tr:last-child td {
+        border-bottom: none;
+      }
+      .source-table td:first-child {
+        font-weight: 600;
+        width: 30%;
+        color: var(--hijau-tua);
+      }
+      .source-table a {
+        color: var(--hijau-muda);
+        text-decoration: none;
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+      }
+      .source-table a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── STATUS BADGE ── */
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .status::before {
+        content: "●";
+        font-size: 10px;
+      }
+      .status-ok {
+        color: #2d9e5e;
+      }
+      .status-warn {
+        color: #d97706;
+      }
+      .status-check {
+        color: #3b82f6;
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        background: var(--hijau-tua);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        margin-top: 40px;
+      }
+      .footer a {
+        color: var(--hijau-aksen);
+      }
+
+      /* ── PRINT ── */
+      @media print {
+        body {
+          font-size: 12px;
+        }
+        .header {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .card.accent {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--hijau-pale);
+        margin: 8px 0;
+      }
+      .lembaga-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 10px;
+      }
+      .lembaga-item {
+        background: white;
+        border: 1px solid #e5ede9;
+        border-radius: 10px;
+        padding: 14px;
+        text-align: center;
+      }
+      .lembaga-item .emoji {
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+      .lembaga-item .name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--hijau-tua);
+      }
+      .lembaga-item .desc {
+        font-size: 11px;
+        color: var(--abu);
+        margin-top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══════════════ HEADER ══════════════ -->
+    <div class="header">
+      <div class="header-badge">📋 KKN Undip IDBU 04 — Digital Profiling</div>
+      <h1>Desa <span>Donosari</span></h1>
+      <div class="header-sub">
+        Kecamatan Patebon, Kabupaten Kendal, Jawa Tengah · Survei Digital
+        Pre-Lapangan
+      </div>
+      <div class="header-meta">
+        <div class="header-meta-item">
+          <div class="icon">📍</div>
+          <span>Kec. Patebon, Kab. Kendal</span>
+        </div>
+        <div class="header-meta-item">
+          <div class="icon">📐</div>
+          <span>153,008 Ha · 2 Dusun · 4 RW · 18 RT</span>
+        </div>
+        <div class="header-meta-item">
+          <div class="icon">👥</div>
+          <span>3.124 Jiwa · 945 KK</span>
+        </div>
+        <div class="header-meta-item">
+          <div class="icon">🌐</div>
+          <span>donosari.desa.id</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ WARNING ══════════════ -->
+    <div class="warning-bar">
+      ✅ <strong>Update:</strong> Data aparatur desa (<em>Seksi C</em>)
+      menggunakan <strong>bagan resmi Balai Desa Donosari</strong> — semua nama
+      perangkat sudah terverifikasi. Data lain bersumber dari donosari.desa.id,
+      DOKAR Kendal, Wikipedia, dan media daring (valid hingga Desember 2025).
+    </div>
+
+    <div class="main">
+      <!-- ══ A. IDENTITAS DESA ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🗺️</div>
+          <div class="section-title">Identitas & Profil Umum Desa</div>
+          <div class="section-letter">A</div>
+        </div>
+
+        <div class="two-col">
+          <table class="info-table">
+            <tr>
+              <th colspan="2">Data Pokok</th>
+            </tr>
+            <tr>
+              <td>Nama Desa</td>
+              <td>Donosari</td>
+            </tr>
+            <tr>
+              <td>Kecamatan</td>
+              <td>Patebon</td>
+            </tr>
+            <tr>
+              <td>Kabupaten</td>
+              <td>Kendal</td>
+            </tr>
+            <tr>
+              <td>Provinsi</td>
+              <td>Jawa Tengah</td>
+            </tr>
+            <tr>
+              <td>Kode Pos</td>
+              <td>51351</td>
+            </tr>
+            <tr>
+              <td>Luas Wilayah</td>
+              <td>153,008 Ha</td>
+            </tr>
+            <tr>
+              <td>Jumlah Dusun</td>
+              <td>2 (Longok & Dasri)</td>
+            </tr>
+            <tr>
+              <td>RW / RT</td>
+              <td>4 RW / 18 RT</td>
+            </tr>
+            <tr>
+              <td>Terbentuk</td>
+              <td>1933 (era Kolonial Belanda)</td>
+            </tr>
+            <tr>
+              <td>Website Resmi</td>
+              <td>donosari.desa.id</td>
+            </tr>
+            <tr>
+              <td>Tipologi</td>
+              <td>Persawahan</td>
+            </tr>
+            <tr>
+              <td>Mayoritas Agama</td>
+              <td>Islam (100%)</td>
+            </tr>
+          </table>
+
+          <div>
+            <table class="info-table" style="margin-bottom: 14px">
+              <tr>
+                <th colspan="2">Batas Wilayah</th>
+              </tr>
+              <tr>
+                <td>🔼 Utara</td>
+                <td>Desa Tambakrejo & Kebonharjo (Kec. Patebon)</td>
+              </tr>
+              <tr>
+                <td>🔽 Selatan</td>
+                <td>Desa Gubugsari & Pucangrejo (Kec. Pegandon)</td>
+              </tr>
+              <tr>
+                <td>▶️ Timur</td>
+                <td>Desa Margosari & Bulugede (Kec. Patebon)</td>
+              </tr>
+              <tr>
+                <td>◀️ Barat</td>
+                <td>Desa Lanji & Kebonharjo (Kec. Patebon)</td>
+              </tr>
+            </table>
+            <div class="white-box">
+              <h4>🎯 Visi Desa</h4>
+              <p
+                style="
+                  font-style: italic;
+                  color: #374151;
+                  line-height: 1.6;
+                  font-size: 13.5px;
+                "
+              >
+                "Masyarakat Adil Makmur Sejahtera melalui peningkatan kualitas
+                Sumber Daya Manusia, Pertanian yang Maju dan Agamis, didukung
+                oleh pemerintahan yang bersih."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ B. SEJARAH SINGKAT ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">📜</div>
+          <div class="section-title">Sejarah Singkat Desa</div>
+          <div class="section-letter">B</div>
+        </div>
+        <div class="white-box">
+          <ul class="timeline">
+            <li>
+              <span class="timeline-date">1933</span>
+              <span class="timeline-text"
+                >Desa Donosari terbentuk dari penggabungan
+                <strong>Desa Longok</strong> dan <strong>Desa Dasri</strong> di
+                masa kolonial Belanda. Lurah pertama:
+                <strong>Mbah Sudjono</strong>.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">Masa Jepang</span>
+              <span class="timeline-text"
+                >Kepemimpinan dilanjutkan oleh
+                <strong>Mbah Siram</strong>.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">1945</span>
+              <span class="timeline-text"
+                ><strong>Mbah Madchan</strong> terpilih sebagai lurah pasca
+                kemerdekaan RI, memimpin selama ±35 tahun.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">1978</span>
+              <span class="timeline-text"
+                >Pembangunan Balai Desa dan Kantor Balai Desa. Pengerasan jalan
+                desa melalui proyek Bandes.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">1979 – 1998</span>
+              <span class="timeline-text"
+                >Pemilihan Kepala Desa berdasarkan UU No. 5/1979. Dilanjutkan
+                era reformasi 1998, sempat kekosongan kepemimpinan.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">1999</span>
+              <span class="timeline-text"
+                ><strong>Bpk. Jambari</strong> (Carik) ditunjuk sebagai Kades
+                YMT. Kemudian terpilih <strong>Bpk. Muh</strong> (berdasarkan UU
+                No. 22/1999).</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">2013 – 2020</span>
+              <span class="timeline-text"
+                ><strong>Bpk. Edi Suprayitno</strong> menjabat sebagai Kepala
+                Desa.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">11 Mei 2020 – Sekarang</span>
+              <span class="timeline-text"
+                ><strong>Bpk. Widodo</strong> resmi menjabat sebagai Kepala Desa
+                hasil Pilkades Maret 2020, masa jabatan 6 tahun.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ══ C. STRUKTUR PEMERINTAHAN ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🏛️</div>
+          <div class="section-title">
+            Struktur Perangkat Desa & Pelayanan Publik
+          </div>
+          <div class="section-letter">C</div>
+        </div>
+
+        <div class="two-col">
+          <table class="info-table">
+            <tr>
+              <th colspan="3">
+                Aparatur Pemerintah Desa
+                <span style="font-weight: 400; font-size: 11px; opacity: 0.8"
+                  >(Sumber: Bagan Resmi Balai Desa)</span
+                >
+              </th>
+            </tr>
+            <tr>
+              <th style="width: 40%">Jabatan</th>
+              <th style="width: 35%">Nama</th>
+              <th style="width: 25%">Status</th>
+            </tr>
+            <tr>
+              <td>Kepala Desa</td>
+              <td><strong>Widodo</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Sekretaris Desa</td>
+              <td><strong>Mali</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kaur Tata Usaha & Umum</td>
+              <td><strong>Abdul Wakhid</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kaur Keuangan</td>
+              <td><strong>Mintarjo</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kaur Perencanaan</td>
+              <td><strong>Lies Farida, S.Pd.</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kasi Pemerintahan</td>
+              <td><strong>Kobro Pujiono</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kasi Kesejahteraan</td>
+              <td><strong>Ali Muthowifin</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kasi Pelayanan</td>
+              <td><strong>Zuhri</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kepala Dusun 1 (Longok)</td>
+              <td><strong>Muhammad Marzuki</strong></td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Kepala Dusun 2 (Dasri)</td>
+              <td>
+                <strong>Mugiyo</strong>
+                <span style="font-size: 11px; color: #6b7280"
+                  >(juga Ketua Poktan Sido Rukun)</span
+                >
+              </td>
+              <td><span class="status status-ok">✔ Bagan Resmi</span></td>
+            </tr>
+            <tr>
+              <td>Camat Patebon</td>
+              <td><strong>Abdul Mufid, S.H., M.M.</strong></td>
+              <td><span class="status status-ok">✔ Terverifikasi</span></td>
+            </tr>
+          </table>
+
+          <div>
+            <div class="white-box" style="margin-bottom: 14px">
+              <h4>📋 Pelayanan Publik yang Tersedia</h4>
+              <ul style="list-style: none; font-size: 13px; line-height: 2">
+                <li>✅ Surat Keterangan Domisili</li>
+                <li>✅ Surat Keterangan Tidak Mampu</li>
+                <li>✅ Pengantar Akta Kelahiran / Kematian</li>
+                <li>✅ Layanan PKK (kesehatan, sosial)</li>
+                <li>✅ Posyandu Lansia (rutin tgl. 10 tiap bulan)</li>
+                <li>✅ Posyandu Balita</li>
+                <li>
+                  ⚠️ Sistem informasi online:
+                  <strong>donosari.desa.id</strong> (aktif, update terakhir Nov
+                  2025)
+                </li>
+              </ul>
+            </div>
+            <div class="white-box">
+              <h4>🖥️ Sistem Digital Desa</h4>
+              <p style="font-size: 13px; line-height: 1.6; color: #374151">
+                Desa Donosari memiliki Sistem Informasi Desa berbasis web di
+                <strong>donosari.desa.id</strong> yang terintegrasi dengan
+                platform DOKAR (Desa dan Kelurahan Online Kendal Terintegrasi)
+                milik Pemkab Kendal. Website memuat profil, berita, kegiatan,
+                keuangan, dan data statistik desa secara transparan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ D. KEPENDUDUKAN ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">👥</div>
+          <div class="section-title">Data Kependudukan</div>
+          <div class="section-letter">D</div>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card accent">
+            <div class="card-label">Total Penduduk</div>
+            <div class="card-value">3.124</div>
+            <div class="card-sub">jiwa (data terbaru profil desa)</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Kepala Keluarga</div>
+            <div class="card-value">945</div>
+            <div class="card-sub">KK terdaftar</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Laki-laki</div>
+            <div class="card-value">1.538</div>
+            <div class="card-sub">49,3% dari total</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Perempuan</div>
+            <div class="card-value">1.528</div>
+            <div class="card-sub">48,9% dari total</div>
+          </div>
+          <div class="card danger">
+            <div class="card-label">Keluarga Prasejahtera</div>
+            <div class="card-value">634</div>
+            <div class="card-sub">67% dari total KK — isu kritis</div>
+          </div>
+          <div class="card warn">
+            <div class="card-label">Sejahtera 1</div>
+            <div class="card-value">156</div>
+            <div class="card-sub">KK tingkat sejahtera 1</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Sejahtera 2</div>
+            <div class="card-value">157</div>
+            <div class="card-sub">KK tingkat sejahtera 2</div>
+          </div>
+          <div class="card">
+            <div class="card-label">Mayoritas Agama</div>
+            <div class="card-value medium">Islam 100%</div>
+            <div class="card-sub">Seluruh warga muslim</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ E. LEMBAGA KEMASYARAKATAN ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🤝</div>
+          <div class="section-title">Lembaga Kemasyarakatan</div>
+          <div class="section-letter">E</div>
+        </div>
+        <div class="lembaga-grid">
+          <div class="lembaga-item">
+            <div class="emoji">🏛️</div>
+            <div class="name">BPD</div>
+            <div class="desc">Badan Permusyawaratan Desa</div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">👩‍👩‍👧</div>
+            <div class="name">PKK</div>
+            <div class="desc">
+              Aktif di tiap RT, pertemuan bulanan tiap Jumat minggu 1
+            </div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">🌾</div>
+            <div class="name">Kelompok Tani</div>
+            <div class="desc">
+              Sido Rukun — Ketua: Mugiyo. Kelola 55 Ha sawah, 400 penggarap
+            </div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">🧑‍🤝‍🧑</div>
+            <div class="name">Karang Taruna</div>
+            <div class="desc">
+              Mekar Sari — diaktifkan ulang 2020 oleh Kades Widodo
+            </div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">👶</div>
+            <div class="name">Posyandu Balita</div>
+            <div class="desc">Layanan kesehatan rutin ibu & anak</div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">👴</div>
+            <div class="name">Posyandu Lansia</div>
+            <div class="desc">Dusun Longok, rutin tanggal 10 tiap bulan</div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">📖</div>
+            <div class="name">TPQ NU 08</div>
+            <div class="desc">
+              Lembaga pendidikan Al-Qur'an, ada program Wisuda
+            </div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">🕌</div>
+            <div class="name">MDT Ula NU 12</div>
+            <div class="desc">Madrasah Diniyah Takmiliyah Ula</div>
+          </div>
+          <div class="lembaga-item">
+            <div class="emoji">🕌</div>
+            <div class="name">Masjid Al Muttaqin</div>
+            <div class="desc">
+              Masjid utama di Dusun Dasri, aktif penyelenggaraan kurban
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ F. KEUANGAN DESA ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">💰</div>
+          <div class="section-title">APBDes – Keuangan Desa</div>
+          <div class="section-letter">F</div>
+        </div>
+
+        <div class="two-col">
+          <div class="white-box">
+            <h4>📥 Pendapatan Desa — Total Rp 1.992.266.000</h4>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Dana Desa (DD)</span><span>Rp 853.917.000</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 43%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja Penyelenggaraan</span><span>Rp 764.778.500</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 38%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Hasil Usaha (PAD)</span><span>Rp 231.150.000</span>
+              </div>
+              <div class="bar-bg">
+                <div
+                  class="bar-fill"
+                  style="width: 12%; background: var(--hijau-aksen)"
+                ></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Bantuan Provinsi</span><span>Rp 259.000.000</span>
+              </div>
+              <div class="bar-bg">
+                <div
+                  class="bar-fill"
+                  style="width: 13%; background: var(--kuning)"
+                ></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Alokasi Dana Desa (ADD)</span><span>Rp 342.099.000</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 17%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Hasil Aset</span><span>Rp 150.000.000</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 8%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Hasil Pajak</span><span>Rp 56.100.000</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 3%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Pendapatan Lain-lain</span><span>Rp 100.000.000</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 5%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="white-box">
+            <h4>📤 Belanja Desa — Total Rp 1.992.266.000</h4>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja Pembangunan</span><span>Rp 1.037.612.500</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 52%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja Penyelenggaraan</span><span>Rp 764.778.500</span>
+              </div>
+              <div class="bar-bg">
+                <div class="bar-fill" style="width: 38%"></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja P. Bencana</span><span>Rp 86.400.000</span>
+              </div>
+              <div class="bar-bg">
+                <div
+                  class="bar-fill"
+                  style="width: 4%; background: var(--merah)"
+                ></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja Pembinaan</span><span>Rp 66.275.000</span>
+              </div>
+              <div class="bar-bg">
+                <div
+                  class="bar-fill"
+                  style="width: 3%; background: var(--kuning)"
+                ></div>
+              </div>
+            </div>
+            <div class="finance-item">
+              <div class="finance-label">
+                <span>Belanja Pemberdayaan</span><span>Rp 37.200.000</span>
+              </div>
+              <div class="bar-bg">
+                <div
+                  class="bar-fill"
+                  style="width: 2%; background: var(--hijau-aksen)"
+                ></div>
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 16px;
+                padding: 12px;
+                background: var(--biru-muda);
+                border-radius: 8px;
+                font-size: 12px;
+                color: var(--biru);
+              "
+            >
+              <strong>⚠️ Update 2026:</strong> Berdasarkan PMK No. 7/2026, lebih
+              dari <strong>58% Dana Desa</strong> diarahkan untuk pembiayaan
+              operasional <strong>Koperasi Desa Merah Putih</strong>. Ini akan
+              mengubah komposisi APBDes Donosari secara signifikan.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ G. POTENSI EKONOMI ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🌿</div>
+          <div class="section-title">Potensi Ekonomi & Mata Pencaharian</div>
+          <div class="section-letter">G</div>
+        </div>
+
+        <div class="three-col" style="margin-bottom: 16px">
+          <div class="white-box">
+            <h4>🌾 Pertanian (Sektor Utama)</h4>
+            <p
+              style="
+                font-size: 13px;
+                line-height: 1.6;
+                color: #374151;
+                margin-bottom: 10px;
+              "
+            >
+              Mayoritas penduduk bermata pencaharian sebagai petani dan buruh
+              tani. Komoditas utama adalah <strong>padi sawah</strong>.
+            </p>
+            <ul style="font-size: 13px; line-height: 1.9; list-style: none">
+              <li>📏 Luas lahan sawah: <strong>±55 Ha</strong></li>
+              <li>👨‍🌾 Jumlah penggarap: <strong>±400 orang</strong></li>
+              <li>
+                🚿 Irigasi: <strong>Jides + Jitut</strong> (270 m, Rp 400 juta
+                bantuan Gubernur Jateng)
+              </li>
+              <li>
+                🏘️ Pengelola: Kelompok Tani <strong>Sido Rukun</strong> (Ketua:
+                Mugiyo)
+              </li>
+            </ul>
+          </div>
+          <div class="white-box">
+            <h4>🏭 UMKM & Wiraswasta</h4>
+            <p
+              style="
+                font-size: 13px;
+                line-height: 1.6;
+                color: #374151;
+                margin-bottom: 10px;
+              "
+            >
+              Sebagian masyarakat berprofesi sebagai wiraswasta dan pelaku UMKM
+              skala kecil. Potensi ini masih dalam tahap pengembangan awal.
+            </p>
+            <ul style="font-size: 13px; line-height: 1.9; list-style: none">
+              <li>✅ Sudah ada pelaku UMKM aktif</li>
+              <li>⚠️ Pemasaran masih konvensional</li>
+              <li>
+                📲 Sudah ada 1x seminar digital marketing (KKN UIN Walisongo,
+                Agustus 2025)
+              </li>
+              <li>🎯 Butuh pendampingan branding & e-commerce</li>
+            </ul>
+          </div>
+          <div class="white-box">
+            <h4>🐟 Sektor Penunjang (Kec. Patebon)</h4>
+            <p
+              style="
+                font-size: 13px;
+                line-height: 1.6;
+                color: #374151;
+                margin-bottom: 10px;
+              "
+            >
+              Dalam konteks Kecamatan Patebon, terdapat potensi sektor lain yang
+              bisa dikaitkan dengan Donosari.
+            </p>
+            <ul style="font-size: 13px; line-height: 1.9; list-style: none">
+              <li>🌊 Perikanan & Kelautan (Patebon)</li>
+              <li>🎨 UMKM Batik (produk unggulan kecamatan)</li>
+              <li>👜 Tas Kulit (produk unggulan kecamatan)</li>
+              <li>🧑‍🌾 Buruh tani (kelompok rentan)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ H. BADAN USAHA DESA ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🏪</div>
+          <div class="section-title">Badan Usaha Desa</div>
+          <div class="section-letter">H</div>
+        </div>
+        <div class="two-col">
+          <div class="white-box">
+            <h4>🔴⚪ Koperasi Desa Merah Putih Donosari</h4>
+            <table class="info-table" style="margin-bottom: 10px">
+              <tr>
+                <td>Tanggal Musdes Pendirian</td>
+                <td><strong>6 Mei 2025</strong></td>
+              </tr>
+              <tr>
+                <td>Ketua Terpilih</td>
+                <td><strong>Maskun</strong> (Tokoh Pemuda)</td>
+              </tr>
+              <tr>
+                <td>Pendamping</td>
+                <td>Pendamping Lokal Desa Kec. Patebon</td>
+              </tr>
+              <tr>
+                <td>Dasar Hukum</td>
+                <td>Inpres No. 9/2025</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>
+                  <span class="tag tag-yellow"
+                    >Baru berdiri, sedang operasionalisasi</span
+                  >
+                </td>
+              </tr>
+            </table>
+            <p style="font-size: 12.5px; color: #374151; line-height: 1.6">
+              Musdes dihadiri Sri Subandini (Kasi Pemerintahan Kec. Patebon).
+              Bersamaan dengan 7 desa lain di Kecamatan Patebon yang juga
+              mendirikan Kopdes Merah Putih di malam yang sama.
+            </p>
+            <div
+              style="
+                margin-top: 10px;
+                padding: 10px;
+                background: var(--merah-muda);
+                border-radius: 8px;
+                font-size: 12px;
+                color: #9b1b24;
+              "
+            >
+              <strong>⚠️ Konteks 2026:</strong> PMK No. 7/2026 mewajibkan >58%
+              Dana Desa untuk Kopdes Merah Putih. Status operasional kopdes ini
+              <strong>perlu diverifikasi langsung</strong> ke lapangan saat KKN.
+            </div>
+          </div>
+          <div class="white-box">
+            <h4>🏦 BUMDes (Badan Usaha Milik Desa)</h4>
+            <p
+              style="
+                font-size: 13px;
+                line-height: 1.6;
+                color: #374151;
+                margin-bottom: 10px;
+              "
+            >
+              BUMDes tercantum sebagai salah satu kelembagaan resmi Desa
+              Donosari dalam dokumen profil. Pernah menjadi materi Bimtek
+              perangkat desa.
+            </p>
+            <table class="info-table">
+              <tr>
+                <td>Keberadaan BUMDes</td>
+                <td>
+                  <span class="status status-warn">Perlu diverifikasi</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Unit Usaha</td>
+                <td><span class="status status-warn">Belum diketahui</span></td>
+              </tr>
+              <tr>
+                <td>Sumber PAD dari Usaha</td>
+                <td><strong>Rp 231.150.000</strong> (di APBDes)</td>
+              </tr>
+            </table>
+            <div
+              style="
+                margin-top: 10px;
+                padding: 10px;
+                background: var(--kuning-muda);
+                border-radius: 8px;
+                font-size: 12px;
+                color: #7d4e00;
+              "
+            >
+              <strong>📌 Catatan:</strong> Ada pendapatan dari "Hasil Usaha" di
+              APBDes sebesar Rp 231 juta. Perlu digali apakah ini dari BUMDes,
+              sewa aset, atau sumber lain.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ I. SARANA PRASARANA ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🏗️</div>
+          <div class="section-title">Sarana & Prasarana</div>
+          <div class="section-letter">I</div>
+        </div>
+        <div class="two-col">
+          <table class="info-table">
+            <tr>
+              <th>Sarana</th>
+              <th>Keberadaan</th>
+              <th>Kondisi</th>
+            </tr>
+            <tr>
+              <td>Kantor / Balai Desa</td>
+              <td>Ada</td>
+              <td>Baik</td>
+            </tr>
+            <tr>
+              <td>Aula Balai Desa</td>
+              <td>Ada</td>
+              <td>Aktif digunakan</td>
+            </tr>
+            <tr>
+              <td>SD N 1 Donosari</td>
+              <td>Ada</td>
+              <td>Aktif</td>
+            </tr>
+            <tr>
+              <td>TPQ NU 08</td>
+              <td>Ada</td>
+              <td>Aktif</td>
+            </tr>
+            <tr>
+              <td>MDT Ula NU 12</td>
+              <td>Ada</td>
+              <td>Aktif</td>
+            </tr>
+            <tr>
+              <td>Masjid Al Muttaqin</td>
+              <td>Ada (Dsn. Dasri)</td>
+              <td>Aktif</td>
+            </tr>
+            <tr>
+              <td>Posyandu Lansia</td>
+              <td>Ada (Dsn. Longok)</td>
+              <td>Rutin</td>
+            </tr>
+            <tr>
+              <td>Jaringan Irigasi (Jides)</td>
+              <td>Ada (270 m)</td>
+              <td>Baik (Bantuan Gubernur)</td>
+            </tr>
+            <tr>
+              <td>Jalan Desa</td>
+              <td>Ada</td>
+              <td>Sedang dibangun (Dsn. Dasri RT 4 RW 4, 2025)</td>
+            </tr>
+          </table>
+          <table class="info-table">
+            <tr>
+              <th>Infrastruktur Digital</th>
+              <th>Keterangan</th>
+            </tr>
+            <tr>
+              <td>Website Desa</td>
+              <td>donosari.desa.id (aktif)</td>
+            </tr>
+            <tr>
+              <td>Integrasi DOKAR</td>
+              <td>Terhubung ke DOKAR Kab. Kendal</td>
+            </tr>
+            <tr>
+              <td>Sistem Srikandi</td>
+              <td>Diimplementasikan (evaluasi Nov 2025)</td>
+            </tr>
+            <tr>
+              <td>Sinyal / Internet</td>
+              <td>Perlu verifikasi lapangan</td>
+            </tr>
+            <tr>
+              <td>Gorong-gorong / Afur</td>
+              <td>Ada, dirawat gotong royong petani tiap musim tanam</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- ══ J. KEGIATAN TERKINI ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">📰</div>
+          <div class="section-title">Kegiatan & Isu Terkini (2025–2026)</div>
+          <div class="section-letter">J</div>
+        </div>
+        <div class="white-box">
+          <ul class="timeline">
+            <li>
+              <span class="timeline-date">April 2025</span>
+              <span class="timeline-text"
+                ><strong>Posyandu Lansia Dusun Longok</strong> — rutin setiap
+                tanggal 10, melayani timbang badan, ukur tinggi, dan pemeriksaan
+                kesehatan.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">8 April 2025</span>
+              <span class="timeline-text"
+                ><strong>Halal bi halal pasca Idul Fitri 1446H</strong> — apel
+                rutin bulanan Kecamatan Patebon dirangkai silaturahmi perangkat
+                desa, kades, dan camat.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">21 April 2025</span>
+              <span class="timeline-text"
+                ><strong>Peringatan Hari Kartini</strong> — karnaval budaya SD N
+                1 Donosari mengelilingi desa dengan baju tradisional,
+                dilanjutkan Lomba Fashion Show di halaman sekolah.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">April 2025</span>
+              <span class="timeline-text"
+                ><strong>Pembangunan Jalan Desa</strong> di Dusun Dasri RT 004
+                RW 004 menggunakan Dana Desa 2025.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">14 Mei 2025</span>
+              <span class="timeline-text"
+                ><strong
+                  >Kunjungan Bupati Kendal Dyah Kartika Permanasari</strong
+                >
+                dalam rangka pemberian
+                <strong>subsidi pangan untuk anak risiko stunting</strong>
+                tingkat Kecamatan Patebon — dilakukan serentak di beberapa
+                titik.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">6 Mei 2025</span>
+              <span class="timeline-text"
+                ><strong
+                  >Musyawarah Desa Khusus Pendirian Koperasi Desa Merah
+                  Putih</strong
+                >
+                — dihadiri Sri Subandini (Kasi Pemerintahan Kec. Patebon). Ketua
+                terpilih: <strong>Maskun</strong>. Dilaksanakan bersamaan dengan
+                7 desa lain di Kecamatan Patebon.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">7 Juni 2025</span>
+              <span class="timeline-text"
+                ><strong>Hari Raya Kurban 1446H</strong> — Masjid Al Muttaqin
+                Dasri menerima
+                <strong>4 ekor sapi dan 23 ekor kambing</strong> dari 51
+                muqorib. Penyembelihan dilakukan hari Sabtu karena Idul Adha
+                jatuh pada hari Jumat.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">2 Juni 2025</span>
+              <span class="timeline-text"
+                ><strong>Apel Perangkat Desa dan Forkompincam Patebon</strong>
+                bulan Juni — kegiatan rutin koordinasi kecamatan.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">31 Agustus 2025</span>
+              <span class="timeline-text"
+                ><strong>Jalan Sehat HUT RI ke-80</strong> — digelar di sejumlah
+                RT secara serentak (RT 5 RW 1, RT 1 RW 2, dll).</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">Agustus 2025</span>
+              <span class="timeline-text"
+                ><strong>Seminar Digital Marketing</strong> oleh Tim KKN UIN
+                Walisongo untuk penggiat UMKM Desa Donosari — membahas cara
+                meningkatkan nilai produk rumahan. Bertempat di Aula Balai
+                Desa.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">Oktober 2025</span>
+              <span class="timeline-text"
+                ><strong>Donosari jadi tuan rumah Lomba MAPSI</strong> (Mata
+                Pelajaran PAI & Seni Islami) tingkat Kecamatan Patebon Tahun
+                2025 — diikuti SD se-kecamatan Patebon.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">22 Oktober 2025</span>
+              <span class="timeline-text"
+                ><strong>Upacara Hari Santri Nasional</strong> — perangkat desa
+                ikut upacara di Alun-alun Kendal. Tahun 2025 adalah peringatan
+                10 tahun Hari Santri Nasional.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">5 November 2025</span>
+              <span class="timeline-text"
+                ><strong>Monitoring dan Evaluasi Sistem Srikandi</strong> oleh
+                tim kecamatan untuk seluruh perangkat desa Donosari —
+                dilaksanakan di Aula Balai Desa.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">15 Desember 2025</span>
+              <span class="timeline-text"
+                ><strong>Bantuan Sosial Bupati Kendal</strong> — Bupati Dyah
+                Kartika Permanasari menyerahkan langsung bantuan beras 20 kg dan
+                4 liter minyak kemasan kepada
+                <strong>245 warga tidak mampu</strong> di Balai Desa Donosari
+                (untuk periode Oktober–November 2025).</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">2026 (Kebijakan)</span>
+              <span class="timeline-text"
+                ><strong>PMK No. 7/2026</strong> — mewajibkan >58% Dana Desa
+                untuk Kopdes Merah Putih. Ini berdampak langsung pada Donosari
+                yang sudah mendirikan kopdes. Status operasional kopdes perlu
+                diverifikasi saat KKN.</span
+              >
+            </li>
+            <li>
+              <span class="timeline-date">2026 (Teridentifikasi)</span>
+              <span class="timeline-text"
+                ><strong>Sosialisasi Pemberantasan Narkoba</strong> bersama
+                Polres Kendal — pemerintah desa Donosari aktif dalam program ini
+                (teridentifikasi dari website, detail tanggal belum
+                terkonfirmasi).</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ══ K. ISU STRATEGIS PROKER ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🎯</div>
+          <div class="section-title">
+            Isu Strategis — Rekomendasi Arah Program Kerja KKN
+          </div>
+          <div class="section-letter">K</div>
+        </div>
+
+        <div class="issue-card high">
+          <div class="issue-title">
+            1. Kemiskinan & Ketahanan Ekonomi
+            <span class="priority p-high">Prioritas Tinggi</span>
+          </div>
+          <div class="issue-desc">
+            634 KK (±67%) masih berstatus prasejahtera. Bantuan sembako dari
+            Bupati (Desember 2025) menunjukkan masih ada 245 KK penerima manfaat
+            bantuan sosial. Perlu program peningkatan ekonomi produktif, bukan
+            hanya bantuan konsumtif.
+          </div>
+        </div>
+
+        <div class="issue-card high">
+          <div class="issue-title">
+            2. Stunting & Kesehatan Gizi Anak
+            <span class="priority p-high">Prioritas Tinggi</span>
+          </div>
+          <div class="issue-desc">
+            Program subsidi pangan untuk anak risiko stunting sudah aktif (Mei
+            2025 — kunjungan Bupati). Posyandu balita ada namun detail data
+            stunting belum terpublikasi online. Ini adalah isu nasional yang
+            sangat relevan untuk program KKN bidang kesehatan.
+          </div>
+        </div>
+
+        <div class="issue-card med">
+          <div class="issue-title">
+            3. Koperasi Desa Merah Putih — Penguatan Kelembagaan
+            <span class="priority p-med">Prioritas Sedang</span>
+          </div>
+          <div class="issue-desc">
+            Kopdes baru didirikan Mei 2025 (ketua: Maskun). Dengan PMK No.
+            7/2026 yang mengalokasikan 58% Dana Desa ke Kopdes, desa butuh
+            pendampingan manajemen koperasi, pembukuan, dan pengembangan unit
+            usaha.
+          </div>
+        </div>
+
+        <div class="issue-card med">
+          <div class="issue-title">
+            4. UMKM & Literasi Digital
+            <span class="priority p-med">Prioritas Sedang</span>
+          </div>
+          <div class="issue-desc">
+            Ada pelaku UMKM aktif, namun pemasaran masih konvensional. Sudah ada
+            rintisan seminar digital marketing (KKN UIN Walisongo, 2025). KKN
+            Undip bisa melanjutkan dengan program e-commerce, marketplace,
+            branding produk, atau media sosial UMKM.
+          </div>
+        </div>
+
+        <div class="issue-card med">
+          <div class="issue-title">
+            5. Pertanian — Pascapanen & Pemasaran
+            <span class="priority p-med">Prioritas Sedang</span>
+          </div>
+          <div class="issue-desc">
+            Infrastruktur irigasi sudah baik (Jides+Jitut, 55 Ha). Produktivitas
+            sudah meningkat. Namun rantai pasok dan pemasaran hasil panen bisa
+            dioptimalkan. Potensi diversifikasi produk olahan (padi/beras
+            lokal), dll.
+          </div>
+        </div>
+
+        <div class="issue-card low">
+          <div class="issue-title">
+            6. Kepemudaan — Karang Taruna Mekar Sari
+            <span class="priority p-low">Prioritas Pendukung</span>
+          </div>
+          <div class="issue-desc">
+            Karang Taruna diaktifkan kembali 2020. Masih butuh penguatan program
+            kerja, capacity building, dan pendampingan manajemen organisasi
+            kepemudaan.
+          </div>
+        </div>
+
+        <div class="issue-card low">
+          <div class="issue-title">
+            7. Pendidikan Agama & Literasi Anak
+            <span class="priority p-low">Prioritas Pendukung</span>
+          </div>
+          <div class="issue-desc">
+            TPQ NU 08 dan MDT Ula NU 12 aktif menyelenggarakan pendidikan
+            keagamaan, bahkan ada program Wisuda Santri. Peluang program
+            pendampingan literasi, kurikulum, atau media pembelajaran kreatif.
+          </div>
+        </div>
+
+        <div class="issue-card low">
+          <div class="issue-title">
+            8. Penyalahgunaan Narkoba — Pencegahan
+            <span class="priority p-low">Prioritas Pendukung</span>
+          </div>
+          <div class="issue-desc">
+            Pemdes Donosari aktif mengadakan sosialisasi anti-narkoba bersama
+            Polres Kendal. Ini bisa menjadi program penyuluhan yang bisa
+            diintegrasikan dengan KKN.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ L. SUMBER DATA ══ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon">🔗</div>
+          <div class="section-title">Sumber Data & Akses Digital</div>
+          <div class="section-letter">L</div>
+        </div>
+        <div class="white-box">
+          <table class="source-table">
+            <tr>
+              <td>Website Resmi Desa</td>
+              <td>
+                <a href="http://donosari.desa.id" target="_blank"
+                  >donosari.desa.id</a
+                >
+              </td>
+              <td>
+                <span class="tag tag-green">Update terakhir: Nov 2025</span>
+              </td>
+            </tr>
+            <tr>
+              <td>DOKAR Kendal</td>
+              <td>
+                <a href="https://dokar.kendalkab.go.id" target="_blank"
+                  >dokar.kendalkab.go.id</a
+                >
+              </td>
+              <td>
+                <span class="tag tag-green">Terintegrasi dengan desa</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Profil Kecamatan Patebon</td>
+              <td>
+                <a href="https://patebon.wordpress.com" target="_blank"
+                  >patebon.wordpress.com</a
+                >
+              </td>
+              <td><span class="tag tag-yellow">Data 2017 (statis)</span></td>
+            </tr>
+            <tr>
+              <td>Wikipedia</td>
+              <td>
+                <a
+                  href="https://id.wikipedia.org/wiki/Donosari,_Patebon,_Kendal"
+                  target="_blank"
+                  >id.wikipedia.org (Donosari)</a
+                >
+              </td>
+              <td><span class="tag tag-yellow">Data dasar</span></td>
+            </tr>
+            <tr>
+              <td>Tribun Pantura</td>
+              <td>
+                <a href="https://pantura.tribunnews.com" target="_blank"
+                  >pantura.tribunnews.com</a
+                >
+              </td>
+              <td><span class="tag tag-green">Berita irigasi 2023</span></td>
+            </tr>
+            <tr>
+              <td>Kicaunews</td>
+              <td>
+                <a href="https://kicaunews.com" target="_blank"
+                  >kicaunews.com</a
+                >
+              </td>
+              <td>
+                <span class="tag tag-green">Berita bantuan Des 2025</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Halo Semarang</td>
+              <td>
+                <a href="https://halosemarang.id" target="_blank"
+                  >halosemarang.id</a
+                >
+              </td>
+              <td><span class="tag tag-yellow">Karang Taruna 2020</span></td>
+            </tr>
+            <tr>
+              <td>Portal Kendal</td>
+              <td>
+                <a href="https://kendalkab.go.id" target="_blank"
+                  >kendalkab.go.id</a
+                >
+              </td>
+              <td><span class="tag tag-green">Data kabupaten resmi</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- ══ PENUTUP ══ -->
+      <div
+        class="white-box"
+        style="
+          border-left: 4px solid var(--hijau-muda);
+          border-radius: 0 12px 12px 0;
+          background: var(--hijau-pale);
+        "
+      >
+        <h4 style="color: var(--hijau-tua); margin-bottom: 10px">
+          📌 Catatan Penting untuk Tim KKN Undip IDBU
+        </h4>
+        <ul style="font-size: 13px; line-height: 2; color: #1a2b22">
+          <li>
+            ✅ Data profil & kependudukan bersifat stabil dan sudah
+            terverifikasi dari sumber resmi
+          </li>
+          <li>
+            ✅ Kegiatan 2025 lengkap dari website resmi desa (donosari.desa.id)
+          </li>
+          <li>
+            ⚠️ <strong>Data 2026:</strong> belum ada postingan baru dari desa,
+            namun konteks kebijakan (PMK No. 7/2026) sudah tersedia
+          </li>
+          <li>
+            ✅ <strong>Aparatur desa sudah 100% terverifikasi</strong> dari
+            bagan resmi Balai Desa
+          </li>
+          <li>
+            🔍 <strong>Wajib diverifikasi lapangan:</strong> status & unit usaha
+            BUMDes, operasional Kopdes Merah Putih, data stunting terkini,
+            kondisi UMKM detail, dan sinyal/akses internet desa
+          </li>
+          <li>
+            💡 Nama Kepala Desa (Widodo) dan Sekdes (Mali) sudah terkonfirmasi
+            dari multiple sumber
+          </li>
+          <li>
+            📅 <strong>Update dokumen ini</strong> setelah survei lapangan
+            pertama dilakukan
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <div class="footer">
+      Digital Profiling Desa Donosari | KKN Undip IDBU | Sumber:
+      <a href="http://donosari.desa.id">donosari.desa.id</a> · DOKAR Kendal ·
+      Media Daring Terpercaya | Disusun via Claude AI · Data valid per Juni 2026
+    </div>
+  </body>
+</html>
