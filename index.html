@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -44,8 +44,9 @@
       .header {
         background: linear-gradient(
           135deg,
-          var(--hijau-tua) 0%,
-          var(--hijau-muda) 100%
+          #2a1350 0%,
+          #5b2d8e 60%,
+          #7b45b8 100%
         );
         color: white;
         padding: 40px 48px 36px;
@@ -124,11 +125,11 @@
 
       /* ── WARNING BAR ── */
       .warning-bar {
-        background: #fff3cd;
-        border-left: 4px solid #f4a261;
+        background: #f0e8ff;
+        border-left: 4px solid #7b45b8;
         padding: 12px 48px;
         font-size: 13px;
-        color: #7d4e00;
+        color: #3d1a6e;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -152,7 +153,7 @@
         gap: 12px;
         margin-bottom: 16px;
         padding-bottom: 10px;
-        border-bottom: 2px solid var(--hijau-pale);
+        border-bottom: 2px solid rgba(155, 80, 220, 0.25);
       }
       .section-icon {
         width: 36px;
@@ -537,13 +538,12 @@
         background: var(--hijau-tua);
         color: rgba(255, 255, 255, 0.7);
         text-align: center;
-        padding: 20px;
+        padding: 28px 48px;
         font-size: 12px;
-        margin-top: 40px;
-        width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+        margin-top: 0;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
       }
       .footer a {
         color: var(--hijau-aksen);
@@ -598,6 +598,147 @@
     </style>
   </head>
   <body>
+    <!-- ══ TOP BANNER ══ -->
+    <div
+      style="
+        background: linear-gradient(
+          135deg,
+          #2a1350 0%,
+          #5b2d8e 45%,
+          #3d1a6e 100%
+        );
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 3px solid rgba(180, 130, 255, 0.5);
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          );
+          background-size: 20px 20px;
+          pointer-events: none;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          right: -60px;
+          top: 0;
+          bottom: 0;
+          width: 250px;
+          background: rgba(255, 255, 255, 0.03);
+          transform: skewX(-10deg);
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          left: 40%;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.08);
+        "
+      ></div>
+
+      <div
+        style="
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 10px 28px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+          position: relative;
+          z-index: 2;
+        "
+      >
+        <!-- KIRI: Logo KKN IDBU-04 -->
+        <div style="flex-shrink: 0">
+          <img
+            src="./logo kiri kkn.png"
+            alt="KKN IDBU-04 Universitas Diponegoro"
+            style="
+              height: 60px;
+              width: auto;
+              display: block;
+              mix-blend-mode: screen;
+              filter: brightness(1.1) contrast(1.1);
+            "
+          />
+        </div>
+
+        <!-- TENGAH: Info lokasi + badge -->
+        <div style="flex: 1; text-align: center">
+          <div
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(180, 130, 255, 0.35);
+              border-radius: 20px;
+              padding: 5px 16px;
+              margin-bottom: 4px;
+            "
+          >
+            <span style="font-size: 12px">📍</span>
+            <span
+              style="
+                font-size: 11px;
+                font-weight: 700;
+                color: #e8d5ff;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+              "
+              >Digital Profiling</span
+            >
+          </div>
+          <div
+            style="
+              font-size: 13px;
+              font-weight: 700;
+              color: #ffffff;
+              line-height: 1.4;
+            "
+          >
+            Desa Donosari · Kec. Patebon · Kab. Kendal
+          </div>
+        </div>
+
+        <!-- KANAN: Logo Undip Banner -->
+        <div
+          style="
+            flex-shrink: 0;
+            background: transparent;
+            border-radius: 8px;
+            padding: 6px 12px;
+            border: none;
+          "
+        >
+          <img
+            src="./logo kanan kkn.png"
+            alt="Universitas Diponegoro - Bermartabat & Bermanfaat"
+            style="
+              height: 60px;
+              width: auto;
+              display: block;
+              filter: brightness(1.05);
+            "
+          />
+        </div>
+      </div>
+    </div>
+    <!-- ══ END TOP BANNER ══ -->
+
     <!-- ══════════════ HEADER ══════════════ -->
     <div class="header">
       <div class="header-badge">📋 KKN Undip IDBU 04 — Digital Profiling</div>
